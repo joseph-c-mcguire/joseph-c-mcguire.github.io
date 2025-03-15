@@ -7,7 +7,12 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll"
+gem "jekyll", "~> 4.3.2"
+gem "webrick", "~> 1.8"
+gem "jekyll-sass-converter", "~> 3.0"
+gem "jekyll-seo-tag", "~> 2.8"
+gem "jekyll-feed", "~> 0.17"
+gem "jekyll-paginate", "~> 1.1"
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 # gem "minima"
 gem "bulma-clean-theme"
