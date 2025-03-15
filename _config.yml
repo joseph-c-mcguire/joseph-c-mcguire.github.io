@@ -18,12 +18,11 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Joseph McGuire
+title: Joseph McGuire | Personal Blog
 email: joseph.c.mcg@gmail.com
-description: >- 
-  Welcome to the personal blog of Joseph McGuire, where I share work I've done, work I'm thinking about, and my general thoughts and writings. Enjoy!
+description: Personal blog and portfolio with retro design
 baseurl: "" # This should be an empty string for yourusername.github.io
-url: "https://joseph-c-mcguire.github.io/" # The base URL for your site
+url: "https://joseph-c-mcguire.github.io" # The base URL for your site
 github_username: joseph-c-mcg
 google_analytics: "{{ site.secrets.GOOGLE_ANALYTICS }}"
 
@@ -47,6 +46,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-katex
+  - jekyll-paginate
 
 mailchimp:
   api_key: "{{ site.secrets.MAILCHIMP_API_KEY }}"
@@ -61,6 +61,13 @@ fixed_navbar: top
 
 # Collections for different content types
 collections:
+  portfolio:
+    output: true
+    permalink: /portfolio/:path/
   services:
     output: true
     permalink: /services/:path/
+
+# Pagination
+paginate: 6
+paginate_path: "/blog/page:num/"

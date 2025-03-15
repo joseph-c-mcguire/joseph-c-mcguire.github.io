@@ -1,0 +1,60 @@
+- category: Programming Languages
+  skills:
+    - name: Python
+      level: 95
+    - name: MATLAB
+      level: 90
+    - name: R
+      level: 85
+    - name: JavaScript
+      level: 80
+    - name: SQL
+      level: 75
+
+- category: Machine Learning & Data Science
+  skills:
+    - name: Time-Series Analysis
+      level: 95
+    - name: Koopman Operator Theory
+      level: 90
+    - name: Deep Learning
+      level: 85
+    - name: Statistical Modeling
+      level: 90
+    - name: Data Visualization
+      level: 85
+
+- category: Financial Services
+  skills:
+    - name: Trading Strategy Development
+      level: 85
+    - name: Backtesting
+      level: 90
+    - name: Risk Assessment
+      level: 80
+    - name: Financial Modeling
+      level: 85
+
+- category: Tools & Frameworks
+  skills:
+    - name: TensorFlow/PyTorch
+      level: 90
+    - name: Pandas/NumPy
+      level: 95
+    - name: Git/GitHub
+      level: 85
+    - name: Docker
+      level: 80
+    - name: Jekyll
+      level: 75
+
+- category: Soft Skills
+  skills:
+    - name: Project Management
+      level: 90
+    - name: Technical Writing
+      level: 85
+    - name: Team Leadership
+      level: 85
+    - name: Client Communication
+      level: 90

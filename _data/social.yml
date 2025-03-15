@@ -1,0 +1,15 @@
+- name: GitHub
+  icon: fab fa-github
+  link: https://github.com/joseph-c-mcguire
+
+- name: LinkedIn
+  icon: fab fa-linkedin
+  link: https://www.linkedin.com/in/joseph-c-mcg
+
+- name: Email
+  icon: fas fa-envelope
+  link: mailto:joseph.c.mcg@gmail.com
+
+- name: Website
+  icon: fas fa-globe
+  link: https://joseph-c-mcguire.github.io
