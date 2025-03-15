@@ -4,6 +4,7 @@ title: GitHub Projects
 permalink: /github-projects/
 description: Blurbs about some of my GitHub projects.
 ---
+{% include y2k-header.html %}
 
 <style>
   .github-projects {

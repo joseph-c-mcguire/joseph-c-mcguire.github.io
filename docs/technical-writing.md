@@ -4,6 +4,7 @@ title: Technical Writing
 permalink: /technical-writing/
 description: Examples of my technical writing.
 ---
+{% include y2k-header.html %}
 
 <style>
   .technical-writing {

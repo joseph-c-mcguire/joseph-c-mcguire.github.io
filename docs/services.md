@@ -4,6 +4,7 @@ title: Services
 permalink: /services/
 description: Professional services offered by Joseph McGuire.
 ---
+{% include y2k-header.html %}
 
 <style>
   .services {

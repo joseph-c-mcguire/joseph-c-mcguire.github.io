@@ -2,6 +2,7 @@
 layout: page
 title: Home
 ---
+{% include y2k-header.html %}
 
 <!-- Link to Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">

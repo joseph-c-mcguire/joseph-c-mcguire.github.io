@@ -3,6 +3,7 @@ layout: page
 title: Blog Posts
 permalink: /posts/
 ---
+{% include y2k-header.html %}
 
 <style>
   .posts {
