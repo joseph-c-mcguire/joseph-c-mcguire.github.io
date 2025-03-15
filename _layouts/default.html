@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  
+  <link rel="stylesheet" href="{{ '/assets/css/app.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/y2k-theme.css' | relative_url }}">
+  
+  {% if page.katex %}
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body,{
+      delimiters: [
+        { left: '$$',  right: '$$',  display: true  },
+        { left: '$',   right: '$',   display: false },
+        { left: '\\[', right: '\\]', display: true  },
+        { left: '\\(', right: '\\)', display: false }
+      ]});">
+  </script>
+  {% endif %}
+  
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  {% seo %}
+  
+  {% if site.google_analytics %}
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics }}');
+  </script>
+  {% endif %}
+</head>
+<body>
+  {% include y2k-header.html %}
+  
+  <main class="main-content">
+    {{ content }}
+  </main>
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <div class="social-links">
+          {% for social in site.data.social %}
+          <a href="{{ social.link }}" target="_blank" class="social-icon">
+            <i class="{{ social.icon }}"></i>
+          </a>
+          {% endfor %}
+        </div>
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

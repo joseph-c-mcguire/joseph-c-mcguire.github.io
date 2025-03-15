@@ -1,0 +1,36 @@
+<div class="status-bar">
+  <div class="container">
+    <div class="status-bar-content">
+      <div class="status-item online-status">
+        <span class="status-dot"></span>
+        <span class="status-text">Online</span>
+      </div>
+      <div class="status-item digital-clock">
+        <span id="status-clock">00:00:00</span>
+      </div>
+      <div class="status-item visitor-counter">
+        <span class="counter-label">Visitors:</span>
+        <span class="counter-value" id="visitor-count">12345</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Digital clock functionality
+  function updateClock() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    document.getElementById('status-clock').textContent = `${hours}:${minutes}:${seconds}`;
+  }
+  
+  // Update clock every second
+  setInterval(updateClock, 1000);
+  updateClock(); // Initial call
+  
+  // Simulate visitor counter (replace with actual counter if available)
+  const startCount = Math.floor(Math.random() * 10000) + 5000;
+  document.getElementById('visitor-count').textContent = startCount;
+</script>

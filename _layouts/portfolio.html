@@ -1,0 +1,94 @@
+---
+layout: default
+---
+
+<style>
+  .portfolio-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ddd;
+  }
+  .portfolio-title {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 0.5rem;
+  }
+  .portfolio-meta {
+    color: #777;
+    margin-bottom: 1rem;
+  }
+  .portfolio-tags {
+    margin: 1rem 0;
+  }
+  .portfolio-tag {
+    display: inline-block;
+    background-color: #e0e0e0;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    font-size: 0.8em;
+  }
+  .portfolio-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .portfolio-image {
+    max-width: 100%;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .project-link {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  .project-link:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+<div class="portfolio-header">
+  <div class="container">
+    <h1 class="portfolio-title">{{ page.title }}</h1>
+    <div class="portfolio-meta">
+      <span>Completed: {{ page.date | date: "%B %Y" }}</span>
+      {% if page.client %}
+      <span> | Client: {{ page.client }}</span>
+      {% endif %}
+    </div>
+    
+    <div class="portfolio-tags">
+      {% for tag in page.tags %}
+        <span class="portfolio-tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="portfolio-content">
+    {% if page.featured_image %}
+    <img src="{{ page.featured_image }}" alt="{{ page.title }}" class="portfolio-image">
+    {% endif %}
+    
+    {{ content }}
+    
+    {% if page.project_url %}
+    <a href="{{ page.project_url }}" class="project-link" target="_blank">
+      View Project
+    </a>
+    {% endif %}
+  </div>
+</div>

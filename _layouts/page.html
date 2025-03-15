@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<section class="page-header" style="background-image: url('{{ page.header_image | default: "/assets/images/bishop-peak.png" }}');">
+  <div class="overlay"></div>
+  <div class="container">
+    <h1 class="title">{{ page.title }}</h1>
+    {% if page.subtitle %}
+    <h2 class="subtitle">{{ page.subtitle }}</h2>
+    {% endif %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="content page-content">
+      {{ content }}
+    </div>
+  </div>
+</section>
+
+{% if page.show_skills %}
+<section class="section skills-section">
+  <div class="container">
+    <h2 class="title is-2 has-text-centered">Skills & Expertise</h2>
+    {% for category in site.data.skills %}
+    <div class="skill-category">
+      <h3 class="title is-4">{{ category.category }}</h3>
+      <div class="columns is-multiline">
+        {% for skill in category.skills %}
+        <div class="column is-one-third">
+          <div class="skill-item">
+            <div class="skill-name">{{ skill.name }}</div>
+            <progress class="progress is-primary" value="{{ skill.level }}" max="100">{{ skill.level }}%</progress>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

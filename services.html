@@ -1,0 +1,205 @@
+---
+layout: page
+title: Services
+subtitle: Professional Services I Offer
+permalink: /services/
+---
+
+<div class="services-intro y2k-box">
+  <h2 class="retro-text">Expert Technical Services</h2>
+  <p>I offer specialized services in AI/ML, data science, and technical consulting. Each service is customized to meet your specific requirements and business goals.</p>
+  <p class="highlight-text">Contact me to discuss your project needs and how we can work together.</p>
+</div>
+
+<div class="services-container">
+  {% for service in site.data.services %}
+    <div class="service-card y2k-card">
+      <div class="service-card-header">
+        <div class="service-icon">
+          <i class="{{ service.icon }}"></i>
+        </div>
+        <div class="service-window-controls">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      
+      <h3 class="service-title retro-text">{{ service.title }}</h3>
+      
+      <div class="service-description">
+        <p>{{ service.description }}</p>
+      </div>
+      
+      <div class="service-actions">
+        <a href="{{ service.link }}" class="y2k-button">Learn More</a>
+      </div>
+      
+      <div class="glow-effect"></div>
+    </div>
+  {% endfor %}
+</div>
+
+<div class="contact-cta y2k-box">
+  <h3 class="retro-text">Ready to start a project?</h3>
+  <p>Get in touch to discuss your specific requirements and how I can help you achieve your goals.</p>
+  <a href="/contact" class="y2k-button primary">Contact Me</a>
+</div>
+
+<style>
+  .services-intro {
+    margin-bottom: 30px;
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #e6f2ff, #f5f5ff);
+  }
+  
+  .highlight-text {
+    font-weight: bold;
+    color: #000099;
+    margin-top: 15px;
+  }
+  
+  .services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+  }
+  
+  .service-card {
+    position: relative;
+    border: 3px solid #9999cc;
+    border-radius: 8px;
+    padding: 25px 20px;
+    background: linear-gradient(to bottom, #ffffff, #f0f0ff);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 153, 0.2);
+  }
+  
+  .service-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+  
+  .service-icon {
+    font-size: 2.5rem;
+    color: #3366cc;
+    background: radial-gradient(circle, #ffffff 0%, #e6f0ff 100%);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #9999cc;
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+  
+  .service-card:hover .service-icon {
+    animation: pulse 1.5s infinite;
+  }
+  
+  .service-window-controls {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .service-window-controls span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: block;
+  }
+  
+  .service-window-controls span:nth-child(1) {
+    background-color: #ff6666;
+    border: 1px solid #cc3333;
+  }
+  
+  .service-window-controls span:nth-child(2) {
+    background-color: #ffcc00;
+    border: 1px solid #cc9900;
+  }
+  
+  .service-window-controls span:nth-child(3) {
+    background-color: #66cc66;
+    border: 1px solid #339933;
+  }
+  
+  .service-title {
+    font-size: 1.5rem;
+    color: #000099;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed #ccccff;
+    text-shadow: 1px 1px 0 #ffffff;
+  }
+  
+  .service-description {
+    color: #333366;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .service-actions {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .glow-effect {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(153, 204, 255, 0.1) 0%, rgba(153, 204, 255, 0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .service-card:hover .glow-effect {
+    opacity: 1;
+  }
+  
+  .contact-cta {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(to right, #e6f2ff, #f0f0ff);
+    border: 3px solid #6699cc;
+  }
+  
+  /* Animation for glowing effects */
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .services-container {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .services-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

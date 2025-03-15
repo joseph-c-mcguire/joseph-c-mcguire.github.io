@@ -1,0 +1,287 @@
+---
+layout: page
+title: Portfolio
+subtitle: My Featured Projects
+permalink: /portfolio/
+---
+
+<div class="portfolio-container y2k-box">
+  <div class="portfolio-filters">
+    <h3 class="filter-heading retro-text">Filter by Category:</h3>
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="machine-learning">Machine Learning</button>
+      <button class="filter-btn" data-filter="data-science">Data Science</button>
+      <button class="filter-btn" data-filter="web-development">Web Development</button>
+      <button class="filter-btn" data-filter="research">Research</button>
+    </div>
+  </div>
+
+  <div class="portfolio-grid">
+    {% for project in site.portfolio %}
+      {% assign project_date = project.completion_date | date: '%s' %}
+      {% assign thirty_days_ago = 'now' | date: '%s' | minus: 2592000 %}
+      
+      <div class="portfolio-item y2k-card" 
+           data-categories="{{ project.categories | join: ' ' }}"
+           data-date="{{ project.completion_date }}">
+        
+        {% if project_date > thirty_days_ago %}
+          <div class="new-badge blink">NEW!</div>
+        {% endif %}
+        
+        <div class="portfolio-image">
+          <img src="{{ project.featured_image | default: '/assets/images/portfolio/default-project.jpg' }}" alt="{{ project.title }}">
+        </div>
+        
+        <div class="portfolio-details">
+          <h3 class="portfolio-title">{{ project.title }}</h3>
+          
+          <div class="portfolio-categories">
+            {% for category in project.categories %}
+              <span class="portfolio-category">{{ category }}</span>
+            {% endfor %}
+          </div>
+          
+          <div class="portfolio-date">
+            <span class="date-label">Completed:</span>
+            <span class="date-value">{{ project.completion_date | date: "%B %Y" }}</span>
+          </div>
+          
+          <p class="portfolio-excerpt">{{ project.excerpt | strip_html | truncatewords: 20 }}</p>
+          
+          <a href="{{ project.url }}" class="y2k-button">View Project</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    
+    // Filter functionality
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active button
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const filterValue = btn.getAttribute('data-filter');
+        
+        // Show/hide portfolio items based on filter
+        portfolioItems.forEach(item => {
+          if (filterValue === 'all') {
+            item.style.display = 'block';
+          } else {
+            const categories = item.getAttribute('data-categories');
+            if (categories.includes(filterValue)) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  /* Portfolio-specific Y2K styling */
+  .portfolio-container {
+    padding: 20px;
+    background-color: #f0f0f0;
+    background-image: url('/assets/images/y2k/grid_bg.png');
+  }
+  
+  .portfolio-filters {
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 15px;
+    background: linear-gradient(to right, #cce6ff, #e6f2ff);
+    border: 2px solid #99ccff;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .filter-heading {
+    margin-bottom: 15px;
+    color: #000099;
+    text-shadow: 1px 1px 0 #ffffff;
+    font-size: 1.4rem;
+  }
+  
+  .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .filter-btn {
+    padding: 6px 12px;
+    background: linear-gradient(to bottom, #ffffff, #ccccff);
+    border: 2px solid #9999cc;
+    border-radius: 4px;
+    color: #000066;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 2px 2px 4px rgba(0, 0, 153, 0.3);
+  }
+  
+  .filter-btn:hover {
+    background: linear-gradient(to bottom, #eeeeff, #9999ff);
+    border-color: #6666cc;
+  }
+  
+  .filter-btn.active {
+    background: linear-gradient(to bottom, #9999ff, #6666cc);
+    color: white;
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+  }
+  
+  .portfolio-item {
+    position: relative;
+    background-color: white;
+    border: 3px solid #9999cc;
+    border-radius: 8px;
+    padding: 15px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  .portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 255, 0.2);
+  }
+  
+  .portfolio-image {
+    height: 200px;
+    overflow: hidden;
+    border: 2px solid #ccccff;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .portfolio-item:hover .portfolio-image img {
+    transform: scale(1.1);
+  }
+  
+  .portfolio-title {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color: #000099;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    text-shadow: 1px 1px 0 #ffffff;
+  }
+  
+  .portfolio-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .portfolio-category {
+    font-size: 0.7rem;
+    background-color: #ccccff;
+    border: 1px solid #9999cc;
+    color: #000066;
+    padding: 2px 6px;
+    border-radius: 10px;
+  }
+  
+  .portfolio-date {
+    font-size: 0.8rem;
+    color: #666666;
+    margin-bottom: 10px;
+  }
+  
+  .date-label {
+    font-weight: bold;
+    color: #000066;
+    margin-right: 5px;
+  }
+  
+  .portfolio-excerpt {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: #333366;
+  }
+  
+  .new-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: linear-gradient(to bottom, #ff0066, #cc0033);
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    z-index: 10;
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgba(255, 0, 102, 0.5);
+    transform: rotate(15deg);
+  }
+  
+  .y2k-button {
+    display: inline-block;
+    padding: 8px 15px;
+    background: linear-gradient(to bottom, #ffcc00, #ff9900);
+    border: 2px solid #ff6600;
+    border-radius: 6px;
+    color: #000066;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 1px 1px 0 #ffffcc;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s;
+  }
+  
+  .y2k-button:hover {
+    background: linear-gradient(to bottom, #ffdd33, #ffaa00);
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .filter-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .filter-btn {
+      width: 80%;
+    }
+  }
+</style>

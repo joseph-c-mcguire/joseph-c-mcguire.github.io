@@ -1,0 +1,80 @@
+---
+layout: default
+---
+
+<section class="hero is-medium is-primary is-bold retro-header">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title is-1 retro-text">{{ page.title | default: site.title }}</h1>
+      <h2 class="subtitle is-3 retro-text">{{ page.subtitle | default: site.description }}</h2>
+      {% if page.hero_button %}
+      <a href="{{ page.hero_button.link }}" class="button is-primary is-large retro-button">
+        {{ page.hero_button.text }}
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="content">
+      {{ content }}
+    </div>
+  </div>
+</section>
+
+{% if page.show_services %}
+<section class="section services-section">
+  <div class="container">
+    <h2 class="title is-2 has-text-centered">Services</h2>
+    <div class="columns is-multiline">
+      {% for service in site.data.services %}
+      <div class="column is-one-quarter-desktop is-half-tablet">
+        <div class="card service-card">
+          <div class="card-content">
+            <div class="has-text-centered">
+              <span class="icon is-large">
+                <i class="{{ service.icon }} fa-3x"></i>
+              </span>
+              <h3 class="title is-4">{{ service.title }}</h3>
+              <p>{{ service.description }}</p>
+            </div>
+            <div class="has-text-centered mt-4">
+              <a href="{{ service.link }}" class="button is-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if page.show_recent_posts %}
+<section class="section recent-posts">
+  <div class="container">
+    <h2 class="title is-2 has-text-centered">Recent Posts</h2>
+    <div class="columns is-multiline">
+      {% for post in site.posts limit:3 %}
+      <div class="column is-one-third">
+        <div class="card post-card">
+          <div class="card-content">
+            <h3 class="title is-4"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+            <p class="subtitle is-6">{{ post.date | date: "%B %d, %Y" }}</p>
+            <div class="content">
+              {{ post.excerpt | strip_html | truncatewords: 30 }}
+            </div>
+            <a href="{{ post.url }}" class="button is-primary is-small">Read More</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="has-text-centered mt-6">
+      <a href="/posts/" class="button is-primary is-medium">View All Posts</a>
+    </div>
+  </div>
+</section>
+{% endif %}

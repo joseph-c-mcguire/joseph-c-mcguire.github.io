@@ -71,3 +71,38 @@ collections:
 # Pagination
 paginate: 6
 paginate_path: "/blog/page:num/"
+
+# Front matter defaults
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: ""
+      type: "portfolio"
+    values:
+      layout: "portfolio"
+  -
+    scope:
+      path: ""
+      type: "services"
+    values:
+      layout: "service"
+  -
+    scope:
+      path: "index.md"
+    values:
+      layout: "home"
+      show_services: true
+      show_recent_posts: true
