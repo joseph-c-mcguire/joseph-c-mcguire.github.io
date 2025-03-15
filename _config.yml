@@ -25,7 +25,7 @@ description: >-
 baseurl: "" # This should be an empty string for yourusername.github.io
 url: "https://joseph-c-mcguire.github.io/" # The base URL for your site
 github_username: joseph-c-mcg
-google_analytics: G-2YVYYEMXMQ
+google_analytics: "{{ site.secrets.GOOGLE_ANALYTICS }}"
 
 # Exclude these files and directories from the site build
 exclude:
@@ -48,6 +48,9 @@ plugins:
   - jekyll-seo-tag
   - jekyll-katex
 
+mailchimp:
+  api_key: "{{ site.secrets.MAILCHIMP_API_KEY }}"
+  list_id: "{{ site.secrets.MAILCHIMP_LIST_ID }}"
 
 markdown: kramdown
 kramdown:

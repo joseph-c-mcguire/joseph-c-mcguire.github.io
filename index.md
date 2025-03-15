@@ -61,6 +61,19 @@ title: Home
 </div>
 
 <div class="section">
+  <h2>Subscribe to Newsletter</h2>
+  <form action="https://YOUR_MAILCHIMP_URL" method="post" target="_blank">
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="EMAIL" required>
+    </div>
+    <div>
+      <input type="submit" value="Subscribe">
+    </div>
+  </form>
+</div>
+
+<div class="section">
   <h2>Contact</h2>
   <ul>
     <li>Location: Providence, RI 02906</li>
