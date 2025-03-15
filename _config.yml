@@ -58,3 +58,9 @@ kramdown:
   math_engine: mathjax
 
 fixed_navbar: top
+
+# Collections for different content types
+collections:
+  services:
+    output: true
+    permalink: /services/:path/

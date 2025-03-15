@@ -39,6 +39,7 @@ title: Home
   <a href="/technical-writing/">Technical Writing</a>
   <a href="/github-projects/">GitHub Projects</a>
   <a href="/posts/">Blog Posts</a>
+  <a href="/services/">Services</a>
 </div>
 
 <div class="header">
@@ -152,5 +153,13 @@ title: Home
   <p>Explore my technical writing pieces where I delve into various topics related to data science, machine learning, and software engineering. These writings provide insights, tutorials, and in-depth analyses of complex subjects.</p>
   <ul>
     <li><a href="/technical-writing/">Technical Writing Page</a></li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Services Offered</h2>
+  <p>I offer a range of professional services leveraging my expertise in AI/ML development, data science, and project management. Visit my services page to learn more about how I can help you or your organization.</p>
+  <ul>
+    <li><a href="/services/">View All Services</a></li>
   </ul>
 </div>

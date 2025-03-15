@@ -1,0 +1,91 @@
+---
+layout: default
+---
+
+<style>
+  .service-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .service-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  .service-title {
+    color: #007bff;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+  .service-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #777;
+    font-size: 0.9em;
+    margin: 15px 0;
+  }
+  .service-categories {
+    margin: 15px 0;
+  }
+  .service-category {
+    display: inline-block;
+    background-color: #f0f0f0;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-right: 5px;
+    font-size: 0.8em;
+  }
+  .service-content {
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+  .service-cta {
+    text-align: center;
+    margin: 30px 0 15px;
+  }
+  .cta-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+  }
+  .cta-button:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+<div class="service-container">
+  <div class="service-header">
+    <h1 class="service-title">{{ page.title }}</h1>
+    
+    <div class="service-categories">
+      {% for category in page.categories %}
+        <span class="service-category">{{ category }}</span>
+      {% endfor %}
+    </div>
+    
+    <div class="service-meta">
+      <span>Starting at: ${{ page.rate }}</span>
+      <span>{{ page.duration }}</span>
+    </div>
+  </div>
+  
+  <div class="service-content">
+    {{ content }}
+  </div>
+  
+  <div class="service-cta">
+    <a href="mailto:{{ site.email }}?subject=Service Inquiry: {{ page.title | url_encode }}" class="cta-button">
+      Request This Service
+    </a>
+  </div>
+</div>
