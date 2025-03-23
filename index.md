@@ -1,17 +1,72 @@
 ---
-layout: page
-title: Home
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: home
+title: Joseph McGuire
+subtitle: Research Engineer | Data Scientist | Software Engineer
+hero_height: is-large
+hero_image: /assets/images/bishop-peak.png
 ---
-{% include y2k-header.html %}
 
-<!-- Link to Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<div class="section">
+  <h2>About Me</h2>
+  <p>Results-driven AI/ML Engineer, Data Scientist, and Software Engineer with expertise in developing scalable machine learning models, cloud-based ML systems, and full-stack applications. I specialize in predictive analytics, real-time inference, and automation solutions, optimizing workflows and enhancing decision-making across multiple industries, including finance, healthcare, and material science.</p>
+  <p>I have a proven track record of securing government contracts, leading R&D efforts, and deploying high-performance AI solutions. I'm passionate about bridging the gap between cutting-edge research and practical AI deployment to drive business impact.</p>
+</div>
 
-<!-- Link to Font Awesome for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<div class="section">
+  <h2>Experience</h2>
+  <ul>
+    <li><strong>Freelance Software Engineer and Consultant</strong> - Self-Employed / NextFrame Analytics (October 2024 - Present)
+      <ul>
+        <li>Developed and deployed AI/ML-powered applications for research and financial sectors, enhancing predictive accuracy by 15% and optimizing millions of financial strategies.</li>
+        <li>Built scalable ML pipelines, enabling 100 TPS real-time inference, automated model retraining, and cloud deployment.</li>
+        <li>Designed and implemented an algorithmic trading optimization system leveraging reinforcement learning, improving financial modeling performance.</li>
+      </ul>
+    </li>
+    <li><strong>AIMdyn, Inc.</strong> - Research Engineer (October 2022 - November 2024)
+      <ul>
+        <li>Developed ML inference systems and APIs for high-impact government projects, improving decision-making capabilities.</li>
+        <li>Led R&D efforts for DARPA, securing a $1 million contract in AI-driven predictive modeling.</li>
+        <li>Achieved 10% relative RMSE for multi-state, 100-step ahead predictions.</li>
+      </ul>
+    </li>
+    <li><strong>Brooksource (Contractor for Deloitte US - Data and Analytics)</strong> - Data Scientist (June 2022 - October 2022)
+      <ul>
+        <li>Developed AI-driven anonymization frameworks, reducing data breach risks by 40% for enterprise clients.</li>
+        <li>Optimized data engineering pipelines, improving efficiency and scalability by 35%.</li>
+      </ul>
+    </li>
+    <li><strong>Cal Poly, San Luis Obispo</strong> - Graduate Researcher (September 2021 - June 2022)
+      <ul>
+        <li>Developed a COVID-19 forecasting model, improving predictions by 15% compared to ARIMA models.</li>
+        <li>Presented research on network-based ML methods for public health applications, influencing policy recommendations.</li>
+      </ul>
+    </li>
+  </ul>
+</div>
 
-<!-- Link to external CSS file -->
-<link rel="stylesheet" href="assets/css/styles.css">
+<div class="section">
+  <h2>Key Competencies</h2>
+  <div class="cards">
+    <div class="card">
+      <i class="fas fa-brain"></i>
+      <h3>AI/ML Expertise</h3>
+      <p>Expert in developing scalable machine learning models, predictive analytics, and real-time inference systems for finance, healthcare, and material science applications.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-project-diagram"></i>
+      <h3>Technical Leadership</h3>
+      <p>Led cross-functional teams on high-profile projects, securing contracts and delivering innovative solutions for government and enterprise clients.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-database"></i>
+      <h3>Full-Stack Development</h3>
+      <p>Proficient in developing and deploying efficient ML pipelines, RESTful APIs, microservices, and cloud-based applications with a focus on performance and scalability.</p>
+    </div>
+  </div>
+</div>
 
 <div class="section">
   <div class="card-container">

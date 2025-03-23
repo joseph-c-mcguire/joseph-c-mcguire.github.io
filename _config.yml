@@ -18,13 +18,17 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Joseph McGuire | Personal Blog
+title: Joseph McGuire | AI/ML Engineer & Data Scientist
 email: joseph.c.mcg@gmail.com
-description: Personal blog and portfolio with retro design
+description: >-
+  AI/ML Engineer, Data Scientist, and Software Engineer specializing in scalable machine learning 
+  models, cloud-based ML systems, and full-stack applications for finance, healthcare, and material science industries.
 baseurl: "" # This should be an empty string for yourusername.github.io
 url: "https://joseph-c-mcguire.github.io" # The base URL for your site
-github_username: joseph-c-mcg
-google_analytics: "{{ site.secrets.GOOGLE_ANALYTICS }}"
+github_username: joseph-c-mcguire
+linkedin_username: joseph-c-mcg
+phone_number: "+1 (805) 468-5639"
+location: "Providence, RI 02906"
 
 # Exclude these files and directories from the site build
 exclude:
