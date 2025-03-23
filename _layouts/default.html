@@ -3,25 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   
-  <link rel="stylesheet" href="{{ '/assets/css/app.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/y2k-theme.css' | relative_url }}">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <link rel="stylesheet" href="/assets/css/y2k-theme.css">
+  <link rel="stylesheet" href="/assets/css/readability.css">
   
-  {% if page.katex %}
-  <!-- KaTeX for math rendering -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js"
-    onload="renderMathInElement(document.body,{
-      delimiters: [
-        { left: '$$',  right: '$$',  display: true  },
-        { left: '$',   right: '$',   display: false },
-        { left: '\\[', right: '\\]', display: true  },
-        { left: '\\(', right: '\\)', display: false }
-      ]});">
-  </script>
+  {% if page.custom_css %}
+    {% for stylesheet in page.custom_css %}
+    <link rel="stylesheet" href="{{ stylesheet }}">
+    {% endfor %}
   {% endif %}
   
   <!-- FontAwesome for icons -->
@@ -29,19 +21,27 @@
   
   {% seo %}
   
-  {% if site.google_analytics %}
+  {% if site.secrets.GOOGLE_ANALYTICS %}
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.secrets.GOOGLE_ANALYTICS }}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', '{{ site.google_analytics }}');
+    gtag('config', '{{ site.secrets.GOOGLE_ANALYTICS }}');
   </script>
   {% endif %}
+  
 </head>
 <body>
   {% include y2k-header.html %}
+
+  {% comment %}
+  Only include the hero on specific pages and not on individual blog posts
+  {% endcomment %}
+  {% if page.layout != 'post' and page.show_hero != false %}
+    {% include page-hero.html %}
+  {% endif %}
   
   <main class="main-content">
     {{ content }}
@@ -51,17 +51,35 @@
     <div class="container">
       <div class="content has-text-centered">
         <div class="social-links">
-          {% for social in site.data.social %}
-          <a href="{{ social.link }}" target="_blank" class="social-icon">
-            <i class="{{ social.icon }}"></i>
+          {% if site.github_username %}
+          <a href="https://github.com/{{ site.github_username }}" target="_blank" class="social-icon">
+            <i class="fab fa-github"></i>
           </a>
-          {% endfor %}
+          {% endif %}
+          
+          {% if site.linkedin_username %}
+          <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          {% endif %}
+          
+          {% if site.email %}
+          <a href="mailto:{{ site.email }}" target="_blank" class="social-icon">
+            <i class="fas fa-envelope"></i>
+          </a>
+          {% endif %}
+          
+          {% if site.url %}
+          <a href="{{ site.url }}" target="_blank" class="social-icon">
+            <i class="fas fa-globe"></i>
+          </a>
+          {% endif %}
         </div>
-        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+        <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
       </div>
     </div>
   </footer>
   
-  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>

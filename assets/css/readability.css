@@ -1,0 +1,83 @@
+/* Improved font sizing for better readability */
+body {
+  font-size: 16px;  /* Base font size */
+  line-height: 1.6;
+}
+
+p, li, td, th, input, select, textarea {
+  font-size: 1rem; /* 16px base */
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 2rem; /* 32px */
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+h2 {
+  font-size: 1.75rem; /* 28px */
+  margin-top: 1.4em;
+  margin-bottom: 0.7em;
+}
+
+h3 {
+  font-size: 1.5rem; /* 24px */
+  margin-top: 1.3em;
+  margin-bottom: 0.65em;
+}
+
+h4 {
+  font-size: 1.25rem; /* 20px */
+  margin-top: 1.2em;
+  margin-bottom: 0.6em;
+}
+
+/* Specific improvements for the Y2K theme while preserving style */
+.y2k-intro-text {
+  font-size: 1.1rem !important; /* 17.6px */
+  line-height: 1.6 !important;
+}
+
+.y2k-nav-link {
+  font-size: 1rem !important; /* 16px */
+}
+
+.breadcrumb-nav, .y2k-status-text, .y2k-last-updated {
+  font-size: 0.875rem !important; /* 14px */
+}
+
+.y2k-counter-digits span {
+  font-size: 0.9rem !important; /* 14.4px */
+}
+
+.service-category, .portfolio-category, .y2k-tag {
+  font-size: 0.875rem !important; /* 14px */
+}
+
+/* Improve card text readability */
+.card p, .card li {
+  font-size: 1rem !important; /* 16px */
+  line-height: 1.6 !important;
+}
+
+/* Portfolio and services sections */
+.portfolio-title, .service-title {
+  font-size: 1.4rem !important; /* 22.4px */
+}
+
+.portfolio-excerpt, .service-description p {
+  font-size: 1rem !important; /* 16px */
+  line-height: 1.6 !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+  
+  .y2k-intro-text {
+    font-size: 1rem !important; /* 16px */
+  }
+}

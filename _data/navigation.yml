@@ -1,12 +1,12 @@
-- name: Home
-  link: "/"
-- name: About
-  link: "/about/"
-- name: Blog
-  link: "/posts/"
-- name: GitHub Projects
-  link: "/github-projects/"
-- name: Services
-  link: "/services/"
-- name: Contact
-  link: "/contact/"
+- title: Home
+  url: /
+- title: About
+  url: /about/
+- title: Blog
+  url: /posts/
+- title: GitHub Projects
+  url: /github-projects/
+- title: Services
+  url: /services/
+- title: Contact
+  url: /contact/

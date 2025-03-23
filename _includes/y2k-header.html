@@ -15,24 +15,21 @@
         <span>1</span><span>3</span><span>3</span><span>7</span>
       </div>
     </div>
-    <div class="y2k-last-updated">Last updated: {% if site.time %}{{ site.time | date: "%B %d, %Y" }}{% else %}March 15, 2025{% endif %}</div>
+    <div class="y2k-last-updated">Last updated: {% if page.last_updated %}{{ page.last_updated }}{% else %}{{ site.time | date: "%B %d, %Y" }}{% endif %}</div>
   </div>
   
   <!-- Breadcrumb Navigation -->
   <div class="breadcrumb-nav">
     <span class="folder-icon"><i class="fas fa-folder-open"></i></span>
     <a href="/">Home</a>
+    
     {% if page.url != "/" %}
       <span class="breadcrumb-separator">/</span>
-      {% if page.url contains "/posts/" %}
-        <a href="/posts/">Blog</a>
-        {% if page.title != "Blog Posts" %}
-          <span class="breadcrumb-separator">/</span>
-          <span class="breadcrumb-current">{{ page.title }}</span>
-        {% endif %}
-      {% else %}
-        <span class="breadcrumb-current">{{ page.title }}</span>
+      {% if page.breadcrumb_parent %}
+        <a href="{{ page.breadcrumb_parent.url }}">{{ page.breadcrumb_parent.title }}</a>
+        <span class="breadcrumb-separator">/</span>
       {% endif %}
+        <span class="breadcrumb-current">{{ page.title }}</span>
     {% endif %}
   </div>
   
@@ -41,69 +38,22 @@
     <!-- Logo Area -->
     <div class="y2k-logo-area">
       <div class="y2k-logo">Joseph McGuire</div>
-      <div class="y2k-tag blink">RESEARCH ENGINEER</div>
+      <div class="y2k-tag blink">AI/ML ENGINEER</div>
     </div>
     
     <!-- Navigation -->
     <nav class="y2k-nav">
       <ul class="y2k-nav-list">
-        {% for item in site.data.navigation %}
+        {% for nav_page in site.data.navigation %}
           <li class="y2k-nav-item">
-            <a href="{{ item.link }}" class="y2k-nav-link{% if page.url == item.link %} active{% endif %} cursor-pointer">
-              <span class="custom-cursor"></span>{{ item.name }}
+            <a href="{{ nav_page.url }}" class="y2k-nav-link {% if page.url == nav_page.url %}active{% endif %} cursor-pointer">
+              <span class="custom-cursor"></span>{{ nav_page.title }}
             </a>
           </li>
         {% endfor %}
       </ul>
     </nav>
   </header>
-  
-  <!-- Hero Section (split screen layout) -->
-  <div class="y2k-hero-section">
-    <!-- Left side: Profile -->
-    <div class="y2k-profile-container pixel-corner">
-      <div class="y2k-profile-frame">
-        <div class="y2k-profile-image">
-          <img src="/assets/images/headshot.jpg" alt="Joseph McGuire" />
-        </div>
-        <div class="y2k-profile-tag float">
-          AI/ML Expert
-        </div>
-      </div>
-      <div class="y2k-pixel-corner top-right"></div>
-      <div class="y2k-pixel-corner bottom-left"></div>
-    </div>
-    
-    <!-- Right side: Intro -->
-    <div class="y2k-intro-container">
-      <div class="y2k-window">
-        <div class="y2k-window-titlebar">
-          <div class="y2k-window-title">Welcome.exe</div>
-          <div class="y2k-window-controls">
-            <span>_</span>
-            <span>□</span>
-            <span>×</span>
-          </div>
-        </div>
-        <div class="y2k-window-content">
-          <h1 class="y2k-intro-heading">Hey there, I'm <span class="y2k-name-highlight">Joseph</span></h1>
-          <div class="y2k-intro-box">
-            <p class="y2k-intro-text">I develop <span class="y2k-highlight">advanced AI/ML algorithms</span> for dynamic environment simulations and time-series applications.</p>
-            <p class="y2k-intro-text">Based in <span class="y2k-bold">Providence, RI</span>, available for research and development projects.</p>
-          </div>
-          <div class="y2k-button-container">
-            <a href="/github-projects/" class="y2k-button primary cursor-pointer">View Projects</a>
-            <a href="/contact/" class="y2k-button secondary cursor-pointer">Contact Me</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Under construction banner -->
-  <div class="construction-banner">
-    SITE OPTIMIZED FOR 800x600 RESOLUTION
-  </div>
 </div>
 
 <style>

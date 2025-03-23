@@ -47,27 +47,6 @@ hero_image: /assets/images/bishop-peak.png
   </ul>
 </div>
 
-<div class="section">
-  <h2>Key Competencies</h2>
-  <div class="cards">
-    <div class="card">
-      <i class="fas fa-brain"></i>
-      <h3>AI/ML Expertise</h3>
-      <p>Expert in developing scalable machine learning models, predictive analytics, and real-time inference systems for finance, healthcare, and material science applications.</p>
-    </div>
-    <div class="card">
-      <i class="fas fa-project-diagram"></i>
-      <h3>Technical Leadership</h3>
-      <p>Led cross-functional teams on high-profile projects, securing contracts and delivering innovative solutions for government and enterprise clients.</p>
-    </div>
-    <div class="card">
-      <i class="fas fa-database"></i>
-      <h3>Full-Stack Development</h3>
-      <p>Proficient in developing and deploying efficient ML pipelines, RESTful APIs, microservices, and cloud-based applications with a focus on performance and scalability.</p>
-    </div>
-  </div>
-</div>
-
 <div class="nav">
   <a href="/">Home</a>
   <a href="/about/">About</a>
