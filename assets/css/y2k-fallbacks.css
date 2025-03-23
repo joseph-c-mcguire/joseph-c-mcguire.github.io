@@ -1,0 +1,135 @@
+/* Y2K Theme CSS Fallbacks - Image Replacements */
+
+/* Logo replacement */
+.y2k-logo {
+  font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #0066cc;
+  text-shadow: 2px 2px 0 #ffcc00, 4px 4px 0 #ff6600;
+  padding: 5px 10px;
+  background: linear-gradient(to bottom, #ffffff, #ccccff);
+  border: 2px outset #9999ff;
+  display: inline-block;
+}
+
+/* Pixel corner replacement */
+.pixel-corner {
+  position: relative;
+  overflow: hidden;
+}
+
+.pixel-corner::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  border-top: 4px solid #9999ff;
+  border-left: 4px solid #9999ff;
+  top: 0;
+  left: 0;
+}
+
+.pixel-corner::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  border-bottom: 4px solid #9999ff;
+  border-right: 4px solid #9999ff;
+  bottom: 0;
+  right: 0;
+}
+
+/* Custom cursor replacement */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Alternative - we can have a custom cursor span to add to elements */
+.custom-cursor {
+  display: inline-block;
+  margin-right: 5px;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, #ffcc00 0%, #ffcc00 49%, #000000 49%, #000000 51%, #ffcc00 51%, #ffcc00 100%);
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%);
+  vertical-align: middle;
+}
+
+/* Pixel texture replacement */
+.pixel-texture {
+  background-color: #f0f0ff;
+  background-image: 
+    linear-gradient(45deg, #ccccff 25%, transparent 25%), 
+    linear-gradient(-45deg, #ccccff 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #ccccff 75%),
+    linear-gradient(-45deg, transparent 75%, #ccccff 75%);
+  background-size: 10px 10px;
+  background-position: 0 0, 0 5px, 5px -5px, -5px 0px;
+}
+
+/* Pixel header background */
+.pixel-header-bg {
+  background-color: #000080;
+  background-image: 
+    radial-gradient(#6666cc 2px, transparent 2px),
+    radial-gradient(#6666cc 2px, transparent 2px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+/* Pixel background */
+.pixel-bg {
+  background-color: #f0f0f0;
+  background-image: 
+    linear-gradient(90deg, rgba(200,200,255,0.5) 1px, transparent 1px),
+    linear-gradient(rgba(200,200,255,0.5) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Construction animated element */
+.construction-banner {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  background: linear-gradient(45deg, #ffcc00 25%, #000000 25%, #000000 50%, #ffcc00 50%, #ffcc00 75%, #000000 75%);
+  background-size: 20px 20px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+  font-family: "Impact", "Arial Black", sans-serif;
+  position: relative;
+  margin: 20px 0;
+  border: 4px ridge #ff9900;
+  animation: move-stripes 2s linear infinite;
+}
+
+@keyframes move-stripes {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 0;
+  }
+}
+
+.construction-banner::before,
+.construction-banner::after {
+  content: "⚠️";
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+/* Blink animation for elements with .blink class */
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.blink {
+  animation: blinker 1s linear infinite;
+}
