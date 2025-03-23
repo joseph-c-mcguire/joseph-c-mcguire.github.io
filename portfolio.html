@@ -19,8 +19,8 @@ permalink: /portfolio/
 
   <div class="portfolio-grid">
     {% for project in site.portfolio %}
-      {% assign project_date = project.completion_date | date: '%s' %}
-      {% assign thirty_days_ago = 'now' | date: '%s' | minus: 2592000 %}
+      {% assign project_date = project.completion_date | date: '%s' | plus: 0 %}
+      {% assign thirty_days_ago = 'now' | date: '%s' | plus: 0 | minus: 2592000 %}
       
       <div class="portfolio-item y2k-card" 
            data-categories="{{ project.categories | join: ' ' }}"
