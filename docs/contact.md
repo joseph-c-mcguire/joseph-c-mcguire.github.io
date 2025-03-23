@@ -3,6 +3,7 @@ layout: page
 title: Contact
 permalink: /contact/
 ---
+{% include y2k-header.html %}
 
 <style>
   .contact-section {

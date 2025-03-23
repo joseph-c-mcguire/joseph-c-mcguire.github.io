@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/app.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/y2k-theme.css' | relative_url }}">
   {% if page.katex %}
         <!-- CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
@@ -23,30 +24,7 @@
     {% endif %}
 </head>
 <body>
-  <header>
-    <nav class="navbar is-primary is-fixed-top">
-      <div class="container">
-        <div class="navbar-brand">
-          <a href="/" class="navbar-item">Joseph McGuire</a>
-          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-        <div id="navMenu" class="navbar-menu">
-          <div class="navbar-start">
-            <a href="/" class="navbar-item">Home</a>
-            <a href="/about/" class="navbar-item">About</a>
-            <a href="/contact/" class="navbar-item">Contact</a>
-            <a href="/posts/" class="navbar-item">Blog Posts</a>
-            <a href="/technical-writing/" class="navbar-item">Technical Writing</a>
-            <a href="/github-projects/" class="navbar-item">GitHub Projects</a>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header>
+  {% include y2k-header.html %}
   <main class="section" style="background-color: #f0f0f0;">
     <div class="container">
       <div class="header" style="position: relative; background-image: url('{{ page.header_image | default: '/assets/images/bishop-peak.png' }}'); background-size: cover; background-position: center; padding: 100px 0; text-align: center; color: #fff;">
@@ -70,5 +48,25 @@
       </div>
     </div>
   </footer>
+  <script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var email = document.querySelector('#email').value;
+      fetch('/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: email })
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert('Subscription successful! Check your email for a welcome message.');
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    });
+  </script>
 </body>
 </html>

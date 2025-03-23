@@ -1,0 +1,195 @@
+<link rel="stylesheet" href="/assets/css/y2k-fallbacks.css">
+
+<div class="y2k-header-container">
+  <!-- Status Bar -->
+  <div class="y2k-status-bar">
+    <div class="y2k-status-indicator">
+      <div class="y2k-status-bar-outer">
+        <div class="y2k-status-bar-inner"></div>
+      </div>
+      <span class="y2k-status-text">Online</span>
+    </div>
+    <div class="y2k-counter">
+      <span>Visitors: </span>
+      <div class="y2k-counter-digits">
+        <span>1</span><span>3</span><span>3</span><span>7</span>
+      </div>
+    </div>
+    <div class="y2k-last-updated">Last updated: {% if site.time %}{{ site.time | date: "%B %d, %Y" }}{% else %}March 15, 2025{% endif %}</div>
+  </div>
+  
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-nav">
+    <span class="folder-icon"><i class="fas fa-folder-open"></i></span>
+    <a href="/">Home</a>
+    {% if page.url != "/" %}
+      <span class="breadcrumb-separator">/</span>
+      {% if page.url contains "/posts/" %}
+        <a href="/posts/">Blog</a>
+        {% if page.title != "Blog Posts" %}
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">{{ page.title }}</span>
+        {% endif %}
+      {% else %}
+        <span class="breadcrumb-current">{{ page.title }}</span>
+      {% endif %}
+    {% endif %}
+  </div>
+  
+  <!-- Main Header -->
+  <header class="y2k-main-header pixel-header-bg">
+    <!-- Logo Area -->
+    <div class="y2k-logo-area">
+      <div class="y2k-logo">Joseph McGuire</div>
+      <div class="y2k-tag blink">RESEARCH ENGINEER</div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="y2k-nav">
+      <ul class="y2k-nav-list">
+        {% for item in site.data.navigation %}
+          <li class="y2k-nav-item">
+            <a href="{{ item.link }}" class="y2k-nav-link{% if page.url == item.link %} active{% endif %} cursor-pointer">
+              <span class="custom-cursor"></span>{{ item.name }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </header>
+  
+  <!-- Hero Section (split screen layout) -->
+  <div class="y2k-hero-section">
+    <!-- Left side: Profile -->
+    <div class="y2k-profile-container pixel-corner">
+      <div class="y2k-profile-frame">
+        <div class="y2k-profile-image">
+          <img src="/assets/images/headshot.jpg" alt="Joseph McGuire" />
+        </div>
+        <div class="y2k-profile-tag float">
+          AI/ML Expert
+        </div>
+      </div>
+      <div class="y2k-pixel-corner top-right"></div>
+      <div class="y2k-pixel-corner bottom-left"></div>
+    </div>
+    
+    <!-- Right side: Intro -->
+    <div class="y2k-intro-container">
+      <div class="y2k-window">
+        <div class="y2k-window-titlebar">
+          <div class="y2k-window-title">Welcome.exe</div>
+          <div class="y2k-window-controls">
+            <span>_</span>
+            <span>□</span>
+            <span>×</span>
+          </div>
+        </div>
+        <div class="y2k-window-content">
+          <h1 class="y2k-intro-heading">Hey there, I'm <span class="y2k-name-highlight">Joseph</span></h1>
+          <div class="y2k-intro-box">
+            <p class="y2k-intro-text">I develop <span class="y2k-highlight">advanced AI/ML algorithms</span> for dynamic environment simulations and time-series applications.</p>
+            <p class="y2k-intro-text">Based in <span class="y2k-bold">Providence, RI</span>, available for research and development projects.</p>
+          </div>
+          <div class="y2k-button-container">
+            <a href="/github-projects/" class="y2k-button primary cursor-pointer">View Projects</a>
+            <a href="/contact/" class="y2k-button secondary cursor-pointer">Contact Me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Under construction banner -->
+  <div class="construction-banner">
+    SITE OPTIMIZED FOR 800x600 RESOLUTION
+  </div>
+</div>
+
+<style>
+  /* Additional styling specific to this header */
+  .y2k-header-container {
+    font-family: "MS Sans Serif", "Arial", sans-serif;
+  }
+
+  .y2k-status-bar {
+    display: flex;
+    justify-content: space-between;
+    background: #c0c0c0;
+    border: 2px outset #dfdfdf;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #333;
+  }
+
+  .y2k-counter-digits {
+    display: inline-flex;
+  }
+  
+  .y2k-counter-digits span {
+    background: #000;
+    color: #0f0;
+    padding: 0 4px;
+    margin: 0 1px;
+    font-family: "Courier New", monospace;
+  }
+
+  .breadcrumb-nav {
+    background-color: #efefef;
+    padding: 3px 10px;
+    border-bottom: 1px solid #ccc;
+    font-size: 12px;
+  }
+  
+  .breadcrumb-separator {
+    margin: 0 5px;
+    color: #999;
+  }
+  
+  .current-page {
+    color: #666;
+  }
+  
+  .y2k-main-header {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .y2k-nav-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .y2k-nav-item {
+    margin: 0 5px;
+  }
+  
+  .y2k-nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    background: linear-gradient(to bottom, #6699ff, #3366cc);
+    border: 2px outset #99ccff;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  
+  .y2k-nav-link.active {
+    background: linear-gradient(to bottom, #3366cc, #003399);
+    border: 2px inset #99ccff;
+  }
+  
+  .y2k-tag {
+    font-size: 12px;
+    background-color: #ff0000;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-left: 10px;
+  }
+</style>

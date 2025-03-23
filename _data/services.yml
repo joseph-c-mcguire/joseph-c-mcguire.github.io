@@ -1,0 +1,19 @@
+- title: AI/ML Development
+  icon: fas fa-brain
+  description: Expert development and implementation of advanced AI/ML algorithms, specializing in time-series applications and dynamic environment simulations.
+  link: /services/ml-consulting/
+
+- title: Data Pipeline Development
+  icon: fas fa-database
+  description: Design and implementation of efficient data processing pipelines for analyzing large datasets, with focus on speed, scalability, and accuracy.
+  link: /services/data-pipeline-development/
+
+- title: Technical Consulting
+  icon: fas fa-laptop-code
+  description: Professional consulting services for businesses looking to leverage cutting-edge technology in their operations and project development.
+  link: /services/technical-consulting/
+
+- title: Financial Strategy Analysis
+  icon: fas fa-chart-line
+  description: Specialized analysis for trading strategy backtesting and robustness evaluation, leveraging mathematical expertise and industry experience.
+  link: /services/financial-analysis/

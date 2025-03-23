@@ -2,6 +2,7 @@
 layout: page
 title: Home
 ---
+{% include y2k-header.html %}
 
 <!-- Link to Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -39,16 +40,7 @@ title: Home
   <a href="/technical-writing/">Technical Writing</a>
   <a href="/github-projects/">GitHub Projects</a>
   <a href="/posts/">Blog Posts</a>
-</div>
-
-<div class="header">
-  <div class="header-content">
-    <img src="assets/images/headshot.jpg" alt="Joseph McGuire" class="header-image">
-    <div class="welcome-text">
-      <h1>Joseph McGuire</h1>
-      <p>Research Engineer | AI/ML Enthusiast</p>
-    </div>
-  </div>
+  <a href="/services/">Services</a>
 </div>
 
 <div class="section">
@@ -58,6 +50,19 @@ title: Home
       <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a> - {{ post.date | date: "%B %d, %Y" }}</li>
     {% endfor %}
   </ul>
+</div>
+
+<div class="section">
+  <h2>Subscribe to Newsletter</h2>
+  <form action="https://YOUR_MAILCHIMP_URL" method="post" target="_blank">
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="EMAIL" required>
+    </div>
+    <div>
+      <input type="submit" value="Subscribe">
+    </div>
+  </form>
 </div>
 
 <div class="section">
@@ -139,5 +144,13 @@ title: Home
   <p>Explore my technical writing pieces where I delve into various topics related to data science, machine learning, and software engineering. These writings provide insights, tutorials, and in-depth analyses of complex subjects.</p>
   <ul>
     <li><a href="/technical-writing/">Technical Writing Page</a></li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Services Offered</h2>
+  <p>I offer a range of professional services leveraging my expertise in AI/ML development, data science, and project management. Visit my services page to learn more about how I can help you or your organization.</p>
+  <ul>
+    <li><a href="/services/">View All Services</a></li>
   </ul>
 </div>
