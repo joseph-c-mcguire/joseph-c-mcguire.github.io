@@ -43,16 +43,6 @@ title: Home
   <a href="/services/">Services</a>
 </div>
 
-<div class="header">
-  <div class="header-content">
-    <img src="assets/images/headshot.jpg" alt="Joseph McGuire" class="header-image">
-    <div class="welcome-text">
-      <h1>Joseph McGuire</h1>
-      <p>Research Engineer | AI/ML Enthusiast</p>
-    </div>
-  </div>
-</div>
-
 <div class="section">
   <h2>Blog Posts</h2>
   <ul>

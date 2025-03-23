@@ -121,7 +121,6 @@ description: "Passionate Research Engineer at AIMdyn Inc. specializing in AI and
   <p>In addition to my technical skills, I am passionate about mentoring junior engineers and fostering their development within Agile workflows. I am also adept at client engagement, acting as the primary technical contact to deliver updates and address engineering inquiries. Outside of work, I’m an avid hiker, traveler, and cooking enthusiast, and I’m currently learning to fence.</p>
 </div>
 
-
 <div class="resume-section">
   <h2>Experience</h2>
   <div class="card">
