@@ -1,0 +1,18 @@
+---
+import Layout from "../components/Layout.astro";
+import resume from "../data/resume.json";
+---
+<Layout title="Presentations & Awards | Joseph C. McGuire">
+  <h1 class="text-2xl font-semibold">Selected Presentations & Awards</h1>
+  <ul class="mt-6 space-y-4">
+    {resume.presentations.map((p) => (
+      <li>
+        <strong>{p.title}</strong> — <span class="opacity-70">{p.event}</span>
+      </li>
+    ))}
+  </ul>
+  <h2 class="text-xl font-semibold mt-10">Academic Achievements</h2>
+  <ul class="mt-4 space-y-2 list-disc ml-5">
+    {resume.awards.map((a) => (<li>{a}</li>))}
+  </ul>
+</Layout>

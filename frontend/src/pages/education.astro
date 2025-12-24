@@ -1,0 +1,15 @@
+---
+import Layout from "../components/Layout.astro";
+import resume from "../data/resume.json";
+---
+<Layout title="Education | Joseph C. McGuire">
+  <h1 class="text-2xl font-semibold">Education</h1>
+  <ul class="mt-6 space-y-4">
+    {resume.education.map((e) => (
+      <li>
+        <h2 class="font-semibold">{e.degree} — {e.school}</h2>
+        <p class="text-sm opacity-70">GPA: {e.gpa} · {e.dates}</p>
+      </li>
+    ))}
+  </ul>
+</Layout>

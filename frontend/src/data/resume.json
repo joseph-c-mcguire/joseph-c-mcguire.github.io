@@ -1,0 +1,112 @@
+{
+  "experience": [
+    {
+      "title": "Co-Founder, CEO",
+      "company": "Cognitive Chemistry Labs Inc.",
+      "location": "Remote (Providence, RI)",
+      "dates": "Jan 2025 – Present",
+      "highlights": [
+        "Led a five-member team building serverless AI models for molecular simulation",
+        "Launched cloud SaaS enabling massively parallel surrogate testing across ZINC-22",
+        "Secured pre-seed traction and commercialization milestones"
+      ]
+    },
+    {
+      "title": "Freelance Consultant",
+      "company": "NextFrame Analytics (Self-Employed)",
+      "location": "Remote (Providence, RI)",
+      "dates": "Oct 2024 – Present",
+      "highlights": [
+        "Font Generation Agent: LangGraph + LangSmith for custom font generation",
+        "Backtesting Agent: LLM-driven trading optimizer (LangChain, OpenAI/Anthropic/DeepSeek)",
+        "REST API on FastAPI + Docker (Heroku) for high-throughput backtesting"
+      ]
+    },
+    {
+      "title": "Research Engineer",
+      "company": "AIMdyn Inc.",
+      "location": "Remote (Santa Barbara, CA)",
+      "dates": "Oct 2022 – Nov 2024",
+      "highlights": [
+        "Delivered initial SCEPTER prototype from concept to client in one month",
+        "Promoted to PI and technical lead (Oct 2023) managing team of six",
+        "Designed Polars data pipeline, PyTorch training framework, and MLflow MLOps",
+        "Dockerized API with GitLab CI/CD, reducing testing times by 83%"
+      ]
+    },
+    {
+      "title": "Data Scientist",
+      "company": "Brooksource (Contractor for Deloitte US - Data and Analytics)",
+      "location": "Remote (Atascadero, CA)",
+      "dates": "Jun 2022 – Oct 2022",
+      "highlights": [
+        "Secure ETL pipelines in Informatica + PostgreSQL for 10TB+ audit data",
+        "Implemented anonymization and verification routines, improving throughput by 30%"
+      ]
+    },
+    {
+      "title": "Teaching Assistant (Instructor of Record)",
+      "company": "California Polytechnic State University, San Luis Obispo",
+      "location": "On-Site (San Luis Obispo, CA)",
+      "dates": "Sep 2020 – May 2022",
+      "highlights": [
+        "Led Precalculus and Business Calculus courses; developed lecture materials and assessments"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "ERCOT Data Pipeline",
+      "link": "https://github.com/joseph-c-mcguire/ercot-project",
+      "description": "High-reliability ingestion and lakehouse normalization of 25 years of ERCOT data",
+      "tech": ["Python", "SQLite", "Data Engineering"]
+    },
+    {
+      "name": "Predictive Maintenance Prototype",
+      "link": "https://webapp-example-frontend-56f2ec31cf0a.herokuapp.com/",
+      "description": "Frontend visualization for model inference, A/B evaluation, interpretability",
+      "tech": ["React", "Visualization"]
+    }
+  ],
+  "education": [
+    {
+      "degree": "M.S. in Mathematics – Cum Laude",
+      "school": "California Polytechnic State University, San Luis Obispo",
+      "gpa": "3.84 / 4.0",
+      "dates": "Graduated May 2022"
+    },
+    {
+      "degree": "B.A. in Mathematics and Physics – Cum Laude",
+      "school": "Sonoma State University",
+      "gpa": "3.79 / 4.0",
+      "dates": "Graduated May 2020"
+    },
+    {
+      "degree": "A.A. in Computer Science",
+      "school": "Allan Hancock College",
+      "gpa": "3.5 / 4.0",
+      "dates": "Graduated May 2017"
+    }
+  ],
+  "skills": [
+    { "category": "Languages & Frameworks", "items": ["Python", "FastAPI", "Django", "Flask", "React", "JavaScript", "PyTorch", "TensorFlow", "LangChain", "LangGraph", "LangSmith"] },
+    { "category": "Databases & Data Engineering", "items": ["PostgreSQL", "MySQL", "SQLite", "MongoDB", "NoSQL"] },
+    { "category": "Cloud & DevOps", "items": ["AWS", "Azure", "GCP", "Docker", "Kubernetes", "GitHub", "GitLab CI/CD", "Linux/Unix"] },
+    { "category": "Other", "items": ["REST APIs", "Async Ops", "Celery", "Redis", "Unit Testing", "Agile/Scrum"] }
+  ],
+  "presentations": [
+    { "title": "Joint Mathematical Meeting Poster Session", "event": "Denver, CO (2020)" },
+    { "title": "Green Family Poster Award — Sonoma State", "event": "2020" },
+    { "title": "ICAR Symposium — Deforestation Model", "event": "2019" },
+    { "title": "SIAM Central Valley Student Conference — Award Winner", "event": "2019" }
+  ],
+  "awards": [
+    "Green Family Poster Award (2020)",
+    "MCM/COMAP Top 10% (2019)",
+    "Top Undergraduate Poster — SIAM Central California (2019)",
+    "Physics & Astronomy Dept Scholarship (2019)",
+    "Joe S. Tenn Scholarship (2019)",
+    "Victor Yen Memorial Scholarship (2019)",
+    "Duncan E. Poland Physics & Astronomy Scholarship (2019)"
+  ]
+}

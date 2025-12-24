@@ -1,0 +1,31 @@
+---
+import "../styles/tailwind.css";
+const { title = 'Joseph C. McGuire', description = 'Personal website' } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <header class="max-w-5xl mx-auto p-4 flex items-center justify-between">
+      <a href="/" class="font-semibold">Joseph C. McGuire</a>
+      <nav class="flex gap-4">
+        <a href="/experience" class="hover:underline">Experience</a>
+        <a href="/projects" class="hover:underline">Projects</a>
+        <a href="/education" class="hover:underline">Education</a>
+        <a href="/skills" class="hover:underline">Skills</a>
+        <a href="/presentations" class="hover:underline">Presentations</a>
+        <a href="/contact" class="hover:underline">Contact</a>
+      </nav>
+    </header>
+    <main class="max-w-5xl mx-auto p-4">
+      <slot />
+    </main>
+    <footer class="max-w-5xl mx-auto p-4 text-sm opacity-70">
+      © {new Date().getFullYear()} Joseph C. McGuire
+    </footer>
+  </body>
+</html>
