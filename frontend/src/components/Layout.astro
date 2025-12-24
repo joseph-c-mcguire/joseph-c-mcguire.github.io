@@ -13,6 +13,7 @@ trackPageVisit(Astro.url.pathname).catch(err => console.error('Analytics error:'
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <base href={Astro.site ? new URL('/', Astro.site).toString() : '/'} />
     <link rel="canonical" href={`${Astro.site && new URL(Astro.url.pathname, Astro.site).toString()}`} />
   </head>
   <body class="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
