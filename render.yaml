@@ -1,26 +1,29 @@
 services:
   - type: web
     name: joseph-c-mcguire-frontend
-    runtime: static
+    runtime: docker
     rootDir: frontend
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
+    dockerfilePath: Dockerfile
     envVars:
-      - key: NODE_VERSION
-        value: 20
-    domains:
-      - your-domain.com
+      - key: PUBLIC_SITE_URL
+        fromService:
+          type: web
+          name: joseph-c-mcguire-frontend
+          property: url
+      - key: PUBLIC_BACKEND_URL
+        fromService:
+          type: web
+          name: joseph-c-mcguire-backend
+          property: url
 
   - type: web
     name: joseph-c-mcguire-backend
-    runtime: python
+    runtime: docker
     rootDir: backend
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app
+    dockerfilePath: Dockerfile
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.5
       - key: FRONTEND_URL
-        value: https://your-domain.com
-    domains:
-      - your-api-domain.com
+        fromService:
+          type: web
+          name: joseph-c-mcguire-frontend
+          property: url

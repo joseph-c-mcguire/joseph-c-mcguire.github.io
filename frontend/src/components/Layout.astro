@@ -13,17 +13,18 @@ trackPageVisit(Astro.url.pathname).catch(err => console.error('Analytics error:'
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="canonical" href={`${Astro.site && new URL(Astro.url.pathname, Astro.site).toString()}`} />
   </head>
   <body class="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
     <header class="max-w-5xl mx-auto p-4 flex items-center justify-between">
-      <a href="/" class="font-semibold">Joseph C. McGuire</a>
+      <a href={Astro.site ? new URL('/', Astro.site).toString() : '/'} class="font-semibold">Joseph C. McGuire</a>
       <nav class="flex gap-4">
-        <a href="/experience" class="hover:underline">Experience</a>
-        <a href="/projects" class="hover:underline">Projects</a>
-        <a href="/education" class="hover:underline">Education</a>
-        <a href="/skills" class="hover:underline">Skills</a>
-        <a href="/presentations" class="hover:underline">Presentations</a>
-        <a href="/contact" class="hover:underline">Contact</a>
+        <a href={Astro.site ? new URL('/experience', Astro.site).toString() : '/experience'} class="hover:underline">Experience</a>
+        <a href={Astro.site ? new URL('/projects', Astro.site).toString() : '/projects'} class="hover:underline">Projects</a>
+        <a href={Astro.site ? new URL('/education', Astro.site).toString() : '/education'} class="hover:underline">Education</a>
+        <a href={Astro.site ? new URL('/skills', Astro.site).toString() : '/skills'} class="hover:underline">Skills</a>
+        <a href={Astro.site ? new URL('/presentations', Astro.site).toString() : '/presentations'} class="hover:underline">Presentations</a>
+        <a href={Astro.site ? new URL('/contact', Astro.site).toString() : '/contact'} class="hover:underline">Contact</a>
       </nav>
     </header>
     <main class="max-w-5xl mx-auto p-4">
