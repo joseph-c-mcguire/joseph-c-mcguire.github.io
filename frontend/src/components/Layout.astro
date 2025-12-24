@@ -1,6 +1,11 @@
 ---
 import "../styles/tailwind.css";
+import { trackPageVisit } from '../utils/analytics';
+
 const { title = 'Joseph C. McGuire', description = 'Personal website' } = Astro.props;
+
+// Track page visit on the server side
+trackPageVisit(Astro.url.pathname).catch(err => console.error('Analytics error:', err));
 ---
 <html lang="en">
   <head>

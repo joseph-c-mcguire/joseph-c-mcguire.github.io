@@ -1,9 +1,25 @@
 ---
 import Layout from "../components/Layout.astro";
+import { trackResumeDownload } from '../utils/analytics';
 import resume from "../data/resume.json";
+
+const handleResumeDownload = async (source: string) => {
+  await trackResumeDownload(source);
+  // The download will happen via the href attribute
+};
 ---
 <Layout title="Experience | Joseph C. McGuire">
-  <h1 class="text-2xl font-semibold">Work Experience</h1>
+  <div class="flex justify-between items-center">
+    <h1 class="text-2xl font-semibold">Work Experience</h1>
+    <a 
+      href="/assets/2025-11-10_milliman.pdf" 
+      download="Joseph_McGuire_Resume.pdf"
+      onclick={`(async () => { await fetch('https://joseph-c-mcguire-backend.onrender.com/api/analytics/resume-download', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ source: 'experience' }) }).catch(e => console.error('Analytics:', e)); })()`}
+      class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+    >
+      Download Resume
+    </a>
+  </div>
   <div class="mt-6 space-y-8">
     {resume.experience.map((role) => (
       <article>

@@ -17,10 +17,18 @@ app = FastAPI(
 )
 
 # Initialize Supabase client
-supabase: Client = create_client(
-    os.getenv("SUPABASE_URL"),
-    os.getenv("SUPABASE_PUBLIC_ANON_KEY")
-)
+supabase_url = os.getenv("SUPABASE_URL")
+supabase_key = os.getenv("SUPABASE_PUBLIC_ANON_KEY")
+
+# Only initialize if credentials are available
+supabase: Client | None = None
+if supabase_url and supabase_key:
+    try:
+        supabase = create_client(supabase_url, supabase_key)
+    except Exception as e:
+        print(f"Warning: Failed to initialize Supabase: {e}")
+else:
+    print("Warning: SUPABASE_URL or SUPABASE_PUBLIC_ANON_KEY not set")
 
 # Enable CORS for frontend requests
 origins = [
@@ -66,6 +74,8 @@ async def health():
 @app.post("/api/analytics/page-visit")
 async def track_page_visit(request: PageVisitRequest):
     """Track page visits"""
+    if not supabase:
+        return {"success": False, "error": "Supabase not configured"}
     try:
         data = {
             "page": request.page,
@@ -81,6 +91,8 @@ async def track_page_visit(request: PageVisitRequest):
 @app.post("/api/analytics/resume-download")
 async def track_resume_download(request: ResumeDownloadRequest):
     """Track resume downloads"""
+    if not supabase:
+        return {"success": False, "error": "Supabase not configured"}
     try:
         data = {
             "source": request.source,
@@ -94,6 +106,8 @@ async def track_resume_download(request: ResumeDownloadRequest):
 @app.post("/api/analytics/contact-submission")
 async def track_contact_submission(request: ContactSubmissionRequest):
     """Track contact form submissions"""
+    if not supabase:
+        return {"success": False, "error": "Supabase not configured"}
     try:
         data = {
             "name": request.name,
@@ -112,6 +126,8 @@ async def track_contact_submission(request: ContactSubmissionRequest):
 @app.get("/api/analytics/page-visits")
 async def get_page_visits():
     """Get page visit statistics"""
+    if not supabase:
+        return {"error": "Supabase not configured"}
     try:
         response = supabase.table("page_visits").select("*").execute()
         visits = response.data
@@ -133,6 +149,8 @@ async def get_page_visits():
 @app.get("/api/analytics/resume-downloads")
 async def get_resume_downloads():
     """Get resume download statistics"""
+    if not supabase:
+        return {"error": "Supabase not configured"}
     try:
         response = supabase.table("resume_downloads").select("*").execute()
         downloads = response.data
@@ -154,6 +172,8 @@ async def get_resume_downloads():
 @app.get("/api/analytics/contact-submissions")
 async def get_contact_submissions():
     """Get contact form submissions"""
+    if not supabase:
+        return {"error": "Supabase not configured"}
     try:
         response = supabase.table("contact_submissions").select("*").execute()
         submissions = response.data
